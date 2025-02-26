@@ -1,0 +1,6 @@
+@ConnectLive.Newsletter.Api_HostAddress = http://localhost:5077
+
+GET {{ConnectLive.Newsletter.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

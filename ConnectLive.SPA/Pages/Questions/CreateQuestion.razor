@@ -1,0 +1,52 @@
+﻿@page "/create-question"
+@using ConnectLive.SPA.Components
+
+<HeaderComponent Title="Questions" Description="Create your next question" />
+
+<MudGrid>
+    <MudStack AlignItems="AlignItems.Center" Justify="Justify.Center">
+        <MudItem xs="12" sm="6">
+            <MudGrid Class="question-background">
+                <MudItem xs="12">
+                    <MudTextField Immediate="true" @bind-Value="@_questionModel.Question" Label="Question"></MudTextField>
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="@_questionModel.Choice1" Label="Choice 1"></MudTextField>
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="@_questionModel.Choice2" Label="Choice 2"></MudTextField>
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="@_questionModel.Choice3" Label="Choice 3"></MudTextField>
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudTextField Label="Choice 4" @bind-Value="@_questionModel.Choice4"></MudTextField>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudSelect Label="Correct Answer" @bind-Value="@_questionModel.CorrectAnswer" AnchorOrigin="Origin.BottomCenter">
+                        <MudSelectItem Value="@_questionModel.Choice1" />
+                        <MudSelectItem Value="@_questionModel.Choice2" />
+                        <MudSelectItem Value="@_questionModel.Choice3" />
+                        <MudSelectItem Value="@_questionModel.Choice4" />
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudStack Justify="Justify.FlexEnd" Row="true">
+                        <MudButton Color="Color.Info" OnClick="OnSave">
+                            Save
+                        </MudButton>
+                        <MudButton Color="Color.Surface" OnClick="OnCancel">
+                            Cancel
+                        </MudButton>
+                    </MudStack>
+                </MudItem>
+            </MudGrid>
+        </MudItem>
+    </MudStack>
+</MudGrid>
+
+<p>Question:  <strong>@_questionModel.Question</strong></p>
+<p>Choice1:  @_questionModel.Choice1</p>
+<p>Choice2:  @_questionModel.Choice2</p>
+<p>Choice3:  @_questionModel.Choice3</p>
+<p>Choice4:  @_questionModel.Choice4</p>

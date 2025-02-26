@@ -1,0 +1,32 @@
+﻿@page "/questions"
+@using ConnectLive.Portal.Shared.Response.Questions
+@using ConnectLive.SPA.Components
+
+<HeaderComponent Title="Questions" Description="List all your questions" />
+
+<MudButton Variant="Variant.Filled" OnClick="GetAllQuestions" Class="mb-4">Reload</MudButton>
+
+@if (_loading)
+{
+    <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-2" />
+}
+<MudDataGrid Items="@_questions" Filterable="true" Dense="true">
+    <Columns>
+        <PropertyColumn Property="x => x.Question" />
+        <PropertyColumn Property="x => x.Choice1" />
+        <PropertyColumn Property="x => x.Choice2" />
+        <PropertyColumn Property="x => x.Choice3" />
+        <PropertyColumn Property="x => x.Choice4" />
+        <TemplateColumn CellClass="d-flex justify-end">
+            <CellTemplate>
+                <MudStack Row>
+                    <MudButton Size="@Size.Small" Variant="@Variant.Outlined" Color="@Color.Primary">Update</MudButton>
+                    <MudButton Size="@Size.Small" Variant="@Variant.Outlined" Color="@Color.Error">Delete</MudButton>
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
+    </Columns>
+    <PagerContent>
+        <MudDataGridPager />
+    </PagerContent>
+</MudDataGrid>

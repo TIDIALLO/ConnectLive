@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\Questions\Component1.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.0" PrivateAssets="all" />
+    <PackageReference Include="MudBlazor" Version="6.11.2" />
+    <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ConnectLive.Core\ConnectLive.Portal.Shared\ConnectLive.Portal.Shared.csproj" />
+    <ProjectReference Include="..\ConnectLive.SPA.Infrastructure\ConnectLive.SPA.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

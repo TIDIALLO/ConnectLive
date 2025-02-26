@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "6RgSRmusUfw=",
+  "success": true,
+  "projectFilePath": "D:\\code\\repos\\repos10\\Connectlive.Proxy\\Connectlive.Proxy.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\diall\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,11 @@
+D:\code\repos\repos10\ConnectLive.Core\ConnectLive.Portal.Shared\bin\Debug\net8.0\ConnectLive.Portal.Shared.deps.json
+D:\code\repos\repos10\ConnectLive.Core\ConnectLive.Portal.Shared\bin\Debug\net8.0\ConnectLive.Portal.Shared.dll
+D:\code\repos\repos10\ConnectLive.Core\ConnectLive.Portal.Shared\bin\Debug\net8.0\ConnectLive.Portal.Shared.pdb
+D:\code\repos\repos10\ConnectLive.Core\ConnectLive.Portal.Shared\obj\Debug\net8.0\ConnectLive.Portal.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\repos\repos10\ConnectLive.Core\ConnectLive.Portal.Shared\obj\Debug\net8.0\ConnectLive.Portal.Shared.AssemblyInfoInputs.cache
+D:\code\repos\repos10\ConnectLive.Core\ConnectLive.Portal.Shared\obj\Debug\net8.0\ConnectLive.Portal.Shared.AssemblyInfo.cs
+D:\code\repos\repos10\ConnectLive.Core\ConnectLive.Portal.Shared\obj\Debug\net8.0\ConnectLive.Portal.Shared.csproj.CoreCompileInputs.cache
+D:\code\repos\repos10\ConnectLive.Core\ConnectLive.Portal.Shared\obj\Debug\net8.0\ConnectLive.Portal.Shared.dll
+D:\code\repos\repos10\ConnectLive.Core\ConnectLive.Portal.Shared\obj\Debug\net8.0\refint\ConnectLive.Portal.Shared.dll
+D:\code\repos\repos10\ConnectLive.Core\ConnectLive.Portal.Shared\obj\Debug\net8.0\ConnectLive.Portal.Shared.pdb
+D:\code\repos\repos10\ConnectLive.Core\ConnectLive.Portal.Shared\obj\Debug\net8.0\ref\ConnectLive.Portal.Shared.dll

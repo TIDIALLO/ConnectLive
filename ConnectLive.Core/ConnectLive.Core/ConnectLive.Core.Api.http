@@ -1,0 +1,5 @@
+﻿@ConnectLive.Core.Api_HostAddress = https://localhost:8081
+
+GET {{ConnectLive.Core.Api_HostAddress}}/user/get-profiles
+
+###

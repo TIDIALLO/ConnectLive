@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "dgSpecHash": "d7SO78QnowM=",
+  "success": true,
+  "projectFilePath": "D:\\code\\repos\\repos10\\Workers\\Workers.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\diall\\.nuget\\packages\\hangfire\\1.8.6\\hangfire.1.8.6.nupkg.sha512",
+    "C:\\Users\\diall\\.nuget\\packages\\hangfire.aspnetcore\\1.8.6\\hangfire.aspnetcore.1.8.6.nupkg.sha512",
+    "C:\\Users\\diall\\.nuget\\packages\\hangfire.core\\1.8.6\\hangfire.core.1.8.6.nupkg.sha512",
+    "C:\\Users\\diall\\.nuget\\packages\\hangfire.netcore\\1.8.6\\hangfire.netcore.1.8.6.nupkg.sha512",
+    "C:\\Users\\diall\\.nuget\\packages\\hangfire.sqlserver\\1.8.6\\hangfire.sqlserver.1.8.6.nupkg.sha512",
+    "C:\\Users\\diall\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.0.0\\microsoft.extensions.configuration.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\diall\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\diall\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.0.0\\microsoft.extensions.fileproviders.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\diall\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\3.0.0\\microsoft.extensions.hosting.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\diall\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\diall\\.nuget\\packages\\microsoft.extensions.primitives\\3.0.0\\microsoft.extensions.primitives.3.0.0.nupkg.sha512",
+    "C:\\Users\\diall\\.nuget\\packages\\newtonsoft.json\\11.0.1\\newtonsoft.json.11.0.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Newtonsoft.Json' 11.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}

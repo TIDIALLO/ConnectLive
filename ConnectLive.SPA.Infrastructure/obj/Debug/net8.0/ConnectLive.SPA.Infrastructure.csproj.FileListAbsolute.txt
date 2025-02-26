@@ -1,0 +1,15 @@
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\bin\Debug\net8.0\ConnectLive.SPA.Infrastructure.deps.json
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\bin\Debug\net8.0\ConnectLive.SPA.Infrastructure.dll
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\bin\Debug\net8.0\ConnectLive.SPA.Infrastructure.pdb
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\bin\Debug\net8.0\ConnectLive.Portal.Shared.dll
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\bin\Debug\net8.0\ConnectLive.Portal.Shared.pdb
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\obj\Debug\net8.0\ConnectLive.SPA.Infrastructure.csproj.AssemblyReference.cache
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\obj\Debug\net8.0\ConnectLive.SPA.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\obj\Debug\net8.0\ConnectLive.SPA.Infrastructure.AssemblyInfoInputs.cache
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\obj\Debug\net8.0\ConnectLive.SPA.Infrastructure.AssemblyInfo.cs
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\obj\Debug\net8.0\ConnectLive.SPA.Infrastructure.csproj.CoreCompileInputs.cache
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\obj\Debug\net8.0\ConnectLive.SPA.Infrastructure.csproj.CopyComplete
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\obj\Debug\net8.0\ConnectLive.SPA.Infrastructure.dll
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\obj\Debug\net8.0\refint\ConnectLive.SPA.Infrastructure.dll
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\obj\Debug\net8.0\ConnectLive.SPA.Infrastructure.pdb
+D:\code\repos\repos10\ConnectLive.SPA.Infrastructure\obj\Debug\net8.0\ref\ConnectLive.SPA.Infrastructure.dll

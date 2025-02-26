@@ -1,0 +1,59 @@
+version: '3.4'
+
+services:
+  seq:
+    image: datalust/seq:latest
+    networks:
+      - backend
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+    networks:
+       - backend
+
+  connectlive-db:
+    image: postgres:15-alpine
+    networks:
+      - backend
+
+  adminer:
+    image: adminer
+    networks:
+      - backend
+
+  connectlive.core.api:
+    image: ${DOCKER_REGISTRY-}connectlive-core-api
+    build:
+      context: .
+      dockerfile: ConnectLive.Core/Dockerfile
+    networks:
+      - backend
+
+  connectlive.notification.api:
+    image: ${DOCKER_REGISTRY-}connectlive-notification-api
+    build:
+      context: .
+      dockerfile: ConnectLive.Notification.Api/Dockerfile
+    networks:
+      - backend
+
+  connectlive.newsletter.api:
+    image: ${DOCKER_REGISTRY-}connectlivenewsletterapi
+    build:
+      context: .
+      dockerfile: ConnectLive.Newsletter.Api/Dockerfile
+    networks:
+      - backend
+
+
+networks:
+  backend:
+    name: connectline-network
+
+volumes:
+  data-postgres:
+  
+
+

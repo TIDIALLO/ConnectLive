@@ -1,0 +1,168 @@
+name: dockercompose2660191218639726462
+services:
+  adminer:
+    container_name: adminer
+    image: adminer
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8082"
+        protocol: tcp
+    restart: always
+  connectlive-db:
+    container_name: connectlive-db
+    environment:
+      POSTGRES_DB: connectlive
+      POSTGRES_PASSWORD: Password1
+      POSTGRES_USER: connectlive
+    image: postgres:15-alpine
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 5432
+        published: "5432"
+        protocol: tcp
+    restart: always
+    volumes:
+      - type: volume
+        source: data-postgres
+        target: /var/lib/postgresql/data
+        volume: {}
+  connectlive.core.api:
+    build:
+      context: D:\code\repos\repos10\ConnectLive.Core
+      dockerfile: ConnectLive.Core/Dockerfile
+    container_name: connectlive-core-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+      EventBusConnection: rabbitmq://rabbitmq:5672
+      EventBusPassword: password
+      EventBusUsername: user
+    image: connectlive-core-api
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8080"
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        published: "8081"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\diall\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\diall\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  connectlive.newsletter.api:
+    build:
+      context: D:\code\repos\repos10\ConnectLive.Core
+      dockerfile: ConnectLive.Newsletter.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+    image: connectlivenewsletterapi
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\diall\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\diall\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  connectlive.notification.api:
+    build:
+      context: D:\code\repos\repos10\ConnectLive.Core
+      dockerfile: ConnectLive.Notification.Api/Dockerfile
+    container_name: connectlive-notification-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+      EventBusConnection: rabbitmq://rabbitmq:5672
+      EventBusPassword: password
+      EventBusUsername: user
+    image: connectlive-notification-api
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8083"
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        published: "8084"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\diall\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\diall\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  rabbitmq:
+    environment:
+      RABBITMQ_DEFAULT_PASS: password
+      RABBITMQ_DEFAULT_USER: user
+    image: rabbitmq:3-management
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 15672
+        published: "15672"
+        protocol: tcp
+  seq:
+    container_name: seq
+    environment:
+      ACCEPT_EULA: "Y"
+    image: datalust/seq:latest
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8199"
+        protocol: tcp
+networks:
+  backend:
+    name: connectline-network
+volumes:
+  data-postgres:
+    name: dockercompose2660191218639726462_data-postgres

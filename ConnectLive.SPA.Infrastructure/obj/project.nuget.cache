@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "IhGAOcVV2hU=",
+  "success": true,
+  "projectFilePath": "D:\\code\\repos\\repos10\\ConnectLive.SPA.Infrastructure\\ConnectLive.SPA.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\diall\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

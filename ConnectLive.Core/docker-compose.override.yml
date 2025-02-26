@@ -1,0 +1,76 @@
+version: '3.4'
+
+services:
+  seq:
+    container_name: seq
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - 8199:80
+
+  rabbitmq:
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+      
+  connectlive-db:
+    restart: always
+    container_name: connectlive-db
+    environment:
+      POSTGRES_USER: connectlive
+      POSTGRES_PASSWORD: Password1
+      POSTGRES_DB: connectlive
+    ports:
+      - 5432:5432
+    volumes:
+      - data-postgres:/var/lib/postgresql/data
+
+  adminer:
+    restart: always
+    container_name: adminer
+    ports:
+      - 8082:8080
+
+  connectlive.core.api:
+    container_name: connectlive-core-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - EventBusUsername=user
+      - EventBusPassword=password
+      - EventBusConnection=rabbitmq://rabbitmq:5672
+    ports:
+      - 8080:8080
+      - 8081:8081
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+ 
+  connectlive.notification.api:
+    container_name: connectlive-notification-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - EventBusUsername=user
+      - EventBusPassword=password
+      - EventBusConnection=rabbitmq://rabbitmq:5672
+    ports:
+      - "8083:8080"
+      - "8084:8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
+  connectlive.newsletter.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+    ports:
+      - "8080"
+      - "8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro

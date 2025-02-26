@@ -1,0 +1,33 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="@_theme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<div class="page">
+    <main>
+        <MudAppBar Fixed="false">
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" OnClick="GoHome" />
+            <MudMenu Label="Players" EndIcon="@Icons.Material.Filled.KeyboardArrowDown">
+                <MudMenuItem OnClick="GoToCreateUser">Create New user</MudMenuItem>
+                <MudMenuItem OnClick="GoToAllUsers">All Users</MudMenuItem>
+            </MudMenu>
+              <MudMenu Label="Games" EndIcon="@Icons.Material.Filled.KeyboardArrowDown">
+                <MudMenuItem OnClick="GoToCreateGame">Create new</MudMenuItem>
+                <MudMenuItem OnClick="GoToAllGames">All</MudMenuItem>
+            </MudMenu>
+            <MudMenu Label="Questions" EndIcon="@Icons.Material.Filled.KeyboardArrowDown">
+                <MudMenuItem OnClick="GoToCreateQuestion">Create new</MudMenuItem>
+                <MudMenuItem OnClick="GoToAllQuestions">All</MudMenuItem>
+            </MudMenu>
+            <MudSpacer />
+            <MudMenu Label="User" EndIcon="@Icons.Material.Filled.KeyboardArrowDown">
+                <MudMenuItem>Sign out</MudMenuItem>
+            </MudMenu>
+        </MudAppBar>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
