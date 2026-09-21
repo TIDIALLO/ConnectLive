@@ -1,0 +1,28 @@
+# Build results
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+# IDE
+.vs/
+.vscode/
+*.csproj.user
+*.sln.user
+*.suo
+*.user
+
+# Rider
+.idea/
+*.sln.iml
+*.iml
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Visual Studio Code
+.vscode/
+launch.json
+tasks.json

@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "connectlive.core": "StartDebugging",
+        "connectlive.core.api": "StartDebugging",
+        "connectlive.notification.api": "StartDebugging",
+        "connectlive.newsletter.api": "StartDebugging"
+      }
+    }
+  }
+}
