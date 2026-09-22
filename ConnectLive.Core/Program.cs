@@ -53,11 +53,20 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", policyBuilder =>
     {
-        var origins = builder.Configuration["Security:AllowedOrigins"].Split(";");
-        policyBuilder.WithOrigins(origins);
-        policyBuilder.AllowAnyHeader();
-        policyBuilder.AllowAnyMethod();
-        policyBuilder.AllowCredentials();
+        var allowedOrigins = builder.Configuration["Security:AllowedOrigins"];
+        
+        if (string.IsNullOrEmpty(allowedOrigins))
+        {
+            // Default origins for local development
+            allowedOrigins = "http://localhost:3000;http://localhost:5000;http://localhost:5173";
+        }
+        
+        var origins = allowedOrigins.Split(";");
+        policyBuilder
+            .WithOrigins(origins)
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 
@@ -70,9 +79,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
-app.UseHttpsRedirection();
+// CORS must be before UseHttpsRedirection
 app.UseCors("CorsPolicy");
+
+// Disable HTTPS redirection in development to avoid CORS issues
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseAuthorization();
 
 // Hangfire dashboard disabled - requires Hangfire configuration
