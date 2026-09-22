@@ -24,7 +24,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnectLiveContext"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("ConnectLiveContext"));
 });
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
@@ -33,7 +33,9 @@ builder.Services.AddScoped<IEmailWorker, EmailWorker>();
 builder.Services.AddScoped<IProxy, Proxy>();
 
 builder.Services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
-builder.Services.AddBusPublisherRegistration(builder.Configuration);
+
+// MassTransit/RabbitMQ disabled for local development - requires external RabbitMQ
+//builder.Services.AddBusPublisherRegistration(builder.Configuration);
 
 builder.Services.AddAutoMapper(typeof(MappingProfile), typeof(ApplicationDbContext));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(MappingProfile).Assembly));
@@ -43,7 +45,8 @@ builder.Services.AddMemoryCache();
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(WatchBehavior<,>));
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CacheBehavior<,>));
 
-builder.Services.AddHangfire(x => x.UsePostgreSqlStorage(options => options.UseNpgsqlConnection(builder.Configuration.GetConnectionString("ConnectLiveContext"))));
+// Hangfire disabled for local development - requires external PostgreSQL
+//builder.Services.AddHangfire(x => x.UsePostgreSqlStorage(options => options.UseNpgsqlConnection(builder.Configuration.GetConnectionString("ConnectLiveContext"))));
 //builder.Services.AddHangfireServer();
 
 builder.Services.AddCors(options =>
@@ -72,10 +75,11 @@ app.UseHttpsRedirection();
 app.UseCors("CorsPolicy");
 app.UseAuthorization();
 
-app.UseHangfireDashboard("/workers", new DashboardOptions
-{
-    Authorization = new[] { new AuthorizationFilter() }
-});
+// Hangfire dashboard disabled - requires Hangfire configuration
+//app.UseHangfireDashboard("/workers", new DashboardOptions
+//{
+//    Authorization = new[] { new AuthorizationFilter() }
+//});
 
 app.UseCustomException();
 app.MapControllers();
